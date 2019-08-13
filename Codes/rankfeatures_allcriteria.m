@@ -1,0 +1,17 @@
+[IDX_ttest, Z_t] = rankfeatures(transpose(Sub2Session1TOM), transpose(Sub2session1class));
+[IDX_entropy, Z_e] = rankfeatures(transpose(Sub2Session1TOM), transpose(Sub2session1class),'Criterion', 'entropy');
+[IDX_bhattacharyya, Z_b] = rankfeatures(transpose(Sub2Session1TOM), transpose(Sub2session1class),'Criterion', 'bhattacharyya');
+[IDX_roc, Z_r] = rankfeatures(transpose(Sub2Session1TOM), transpose(Sub2session1class),'Criterion', 'roc');
+[IDX_wilcoxon, Z_w] = rankfeatures(transpose(Sub2Session1TOM), transpose(Sub2session1class),'Criterion', 'wilcoxon');
+trainSubset_ttest= Sub2Session1TOM(:,IDX_ttest(1:10));
+trainSubset_ttest = horzcat(trainSubset_ttest,Sub2session1class);
+trainSubset_entropy= Sub2Session1TOM(:,IDX_entropy(1:10));
+trainSubset_entropy = horzcat(trainSubset_entropy,Sub2session1class);
+trainSubset_bhattacharyya= Sub2Session1TOM(:,IDX_bhattacharyya(1:10));
+trainSubset_bhattacharyya = horzcat(trainSubset_bhattacharyya,Sub2session1class);
+trainSubset_roc= Sub2Session1TOM(:,IDX_roc(1:10));
+trainSubset_roc = horzcat(trainSubset_roc,Sub2session1class);
+trainSubset_wilcoxon= Sub2Session1TOM(:,IDX_wilcoxon(1:10));
+trainSubset_wilcoxon = horzcat(trainSubset_wilcoxon,Sub2session1class);
+trainSubset_whole= Sub2Session1TOM(:,:);
+trainSubset_whole = horzcat(trainSubset_whole,Sub2session1class);
